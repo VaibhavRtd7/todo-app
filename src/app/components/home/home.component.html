@@ -1,0 +1,41 @@
+<div class="container mt-3 mb-3"> 
+      <h2 class="text-center underline"> Drag and Drop Task Board </h2>
+    <div class="mt-2 mb-2 p-2 border">
+        <label for="task" class="form-label"> Add Task </label>
+        <input type="text" class="form-control" id="task" [(ngModel)]="taskName">
+
+        <button class="btn btn-sm btn-success  mt-2" (click)="addTask()">
+            Add the task
+        </button>
+    </div>
+
+    <div class="row">
+
+        <div class="todoTask border col col-md-4 m-2">
+            <h4 class="text-center my-2 border shadow"> Todo Task </h4>
+            <ul >
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task1 </li>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task2 </li>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task3 </li>
+            </ul>
+        </div>
+
+        <div class="inProgressTask border col col-md-4 m-2">
+            <h4 class="text-center my-2 border shadow"> Ongoing Task </h4>
+            <ul>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task1 </li>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task2 </li>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task3 </li>
+            </ul>
+        </div>
+        <div class="doneTask border col col-md-4 m-2">
+            <h4 class="text-center my-2 border shadow"> Done Task </h4>
+            <ul>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task1 </li>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task2 </li>
+                <li draggable="true" ondragstart="dragstartHandler(event)"> task3 </li>
+            </ul>
+        </div>
+
+
+    </div>
