@@ -1,13 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  taskName: string = '';
 
+export class HomeComponent {
+
+  taskName: string = '';
   todoTasks: string[] = [];
   inProgressTasks: string[] = [];
   doneTasks: string[] = [];
@@ -28,7 +32,7 @@ export class HomeComponent {
   }
 
   onDragOver(event: DragEvent) {
-    event.preventDefault();
+    event.preventDefault(); 
   }
 
   onDrop(event: DragEvent, targetList: string) {
