@@ -1,51 +1,48 @@
-
-<div class="flex-grow-1 container mt-3 mb-3"> 
-  <h2 class="text-center underline">Drag and Drop Task Board</h2>
-
-  <div class="mt-2 mb-2 p-2 border">
-    <label for="task" class="form-label">Add Task</label>
-    <input type="text" class="form-control" id="task" [(ngModel)]="taskName" (keydown.enter)="addTask()">
-    <button class="btn btn-sm btn-success mt-2" (click)="addTask()">Add the task</button>
+<div class="flex-grow-1 container mt-3 mb-3">
+  <div class="app-header">
+    <h1 class="app-title">
+      <i class="fas fa-tasks"></i> Todo Master Pro
+    </h1>
+    <p class="app-subtitle">Organize your life with modern Angular power</p>
+  </div>
+  <div class="input-section">
+    <div class="input-container">
+      <input type="text" class="todo-input" placeholder="Enter your task !!" [(ngModel)]="taskName"
+        (keyup.enter)="addTask()" #todoInput>
+      <button class="add-button" (click)="addTask()">
+        <i class="fas fa-plus"></i>
+        Add Task
+      </button>
+    </div>
   </div>
 
+
   <div class="row">
-    <div class="border col col-md-4 gap-1"
-         (dragover)="onDragOver($event)"
-         (drop)="onDrop($event, 'todo')">
+    <div class="todo-section pending-section border col col-md-4 gap-1" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'todo')">
       <h4 class="text-center my-2 border shadow py-1 bg-info">Todo Task</h4>
       <ul>
-        <li *ngFor="let task of todoTasks"
-            draggable="true"
-            (dragstart)="onDragStart($event, task, 'todo')"
-            class="border p-1 m-1 bg-light bg-gradient">
+        <li *ngFor="let task of todoTasks" draggable="true" (dragstart)="onDragStart($event, task, 'todo')"
+          class="border p-1 m-1 bg-light bg-gradient">
           {{ task }}
         </li>
       </ul>
     </div>
 
-    <div class="border col col-md-4 gap-1"
-         (dragover)="onDragOver($event)"
-         (drop)="onDrop($event, 'inProgress')">
+    <div class="todo-section pending-section border col col-md-4 gap-1" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'inProgress')">
       <h4 class="text-center my-2 border shadow py-1 bg-info">Ongoing Task</h4>
       <ul>
-        <li *ngFor="let task of inProgressTasks"
-            draggable="true"
-            (dragstart)="onDragStart($event, task, 'inProgress')"
-            class="border p-1 m-1 bg-light bg-gradient">
+        <li *ngFor="let task of inProgressTasks" draggable="true" (dragstart)="onDragStart($event, task, 'inProgress')"
+          class="border p-1 m-1 bg-light bg-gradient">
           {{ task }}
         </li>
       </ul>
     </div>
 
-    <div class="border col col-md-4 gap-1"
-         (dragover)="onDragOver($event)"
-         (drop)="onDrop($event, 'done')">
+    <div class="todo-section pending-section border col col-md-4 gap-1" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'done')">
       <h4 class="text-center my-2 border shadow py-1 bg-info">Done Task</h4>
       <ul>
-        <li *ngFor="let task of doneTasks"
-            draggable="true"
-            (dragstart)="onDragStart($event, task, 'done')"
-            class="border p-1 m-1 bg-light bg-gradient">
+        <li *ngFor="let task of doneTasks" draggable="true" (dragstart)="onDragStart($event, task, 'done')"
+          class="border p-1 m-1 bg-light bg-gradient">
           {{ task }}
         </li>
       </ul>

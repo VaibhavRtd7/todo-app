@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+     --primary-color: #6366f1;
+     --secondary-color: #8b5cf6;
+     --success-color: #10b981;
+     --warning-color: #f59e0b;
+     --danger-color: #ef4444;
+     --dark-bg: #0f172a;
+     --card-bg: rgba(255, 255, 255, 0.05);
+     --glass-bg: rgba(255, 255, 255, 0.1);
+     --glass-border: rgba(255, 255, 255, 0.2);
+     --text-primary: #f8fafc;
+     --text-secondary: #cbd5e1;
+     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+     --border-radius: 1rem;
+     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ }
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     min-height: 100vh;
+     color: var(--text-primary);
+     overflow-x: hidden;
+ }
