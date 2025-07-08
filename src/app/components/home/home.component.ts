@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TasksSummaryComponent } from '../tasks-summary/tasks-summary.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TasksSummaryComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -32,10 +33,17 @@ export class HomeComponent {
   }
 
   onDragOver(event: DragEvent) {
-    event.preventDefault(); 
+    event.preventDefault();
+    const target = event.currentTarget as HTMLElement;
+    target.classList.remove('drag-over');
   }
 
   onDrop(event: DragEvent, targetList: string) {
+
+    event.preventDefault();
+    const target = event.currentTarget as HTMLElement;
+    target.classList.remove('drag-over');
+
     if (this.sourceList === targetList) return;
 
     this.removeTaskFromList(this.draggedTask, this.sourceList);

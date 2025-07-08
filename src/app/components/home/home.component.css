@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 /* Header Styles */
 .app-header {
     text-align: center;
@@ -109,4 +113,177 @@
 
 .add-button:active {
     transform: translateY(0);
+}
+
+/* Todo Section  */
+/*-----------------------------------
+ 🌟 Base Styles
+-----------------------------------*/
+.container-box {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 10px;
+}
+
+.todo-section {
+  flex: 1;
+  min-width: 250px;
+  min-height: 250px;
+  border-radius: 16px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease all;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.6s ease;
+}
+
+.todo-section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.todo-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/*-----------------------------------
+ 🎨 Section Headings - Color Variants
+-----------------------------------*/
+.todo-section-heading {
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.5);
+}
+
+.todo-section-heading.todo {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6); /* Indigo */
+}
+
+.todo-section-heading.ongoing {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24); /* Amber */
+}
+
+.todo-section-heading.done {
+  background: linear-gradient(90deg, #10b981, #34d399); /* Green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/*-----------------------------------
+ 💡 Section Card Shadows
+-----------------------------------*/
+.todo-section.starting-section {
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+}
+
+.todo-section.pending-section {
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+}
+
+.todo-section.completed-section {
+  box-shadow: 0 4px 25px rgba(16, 185, 129, 0.3);
+}
+
+/*-----------------------------------
+ ✅ Task Items
+-----------------------------------*/
+.todo-section li {
+  background: #f8fafc;
+   border-left: 6px solid red;
+  border-left: 6px solid #6366f1;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeInTask 0.5s ease;
+}
+
+.todo-section li:active {
+  cursor: grabbing;
+}
+
+.todo-section li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pending-section li {
+  border-left-color: #f59e0b;
+}
+
+.completed-section li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  border-left: 6px solid #10b981;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  color: #10b981;
+  animation: fadeInTask 0.5s ease-in;
+}
+
+.completed-section li::before {
+  display: none; 
+}
+
+.done-text {
+  text-decoration: line-through;
+  color: #4ade80;
+}
+
+/*-----------------------------------
+ ✨ Drag and Input Animations
+-----------------------------------*/
+.input-container:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
+}
+
+.todo-section.drag-over {
+  border: 2px #8b5cf6;
+  background: rgba(139, 92, 246, 0.05);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+/*-----------------------------------
+  Keyframe Animations
+-----------------------------------*/
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTask {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
