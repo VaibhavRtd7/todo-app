@@ -1,289 +1,336 @@
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-/* Header Styles */
-.app-header {
+  /* Header Styles */
+  .app-header {
+      text-align: center;
+      padding: 3rem 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+  }
+
+  .app-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInDown 0.8s ease-out;
+  }
+
+  .app-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      animation: slideInUp 0.8s ease-out 0.2s both;
+  }
+
+  @keyframes slideInDown {
+      from {
+          opacity: 0;
+          transform: translateY(-50px);
+      }
+
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  @keyframes slideInUp {
+      from {
+          opacity: 0;
+          transform: translateY(50px);
+      }
+
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  /* Input Section  */
+  .input-section {
+      margin-bottom: 2rem;
+  }
+
+  .input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius);
+      padding: 0.5rem;
+      transition: var(--transition);
+  }
+
+  .input-container:focus-within {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  .todo-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 1rem 1.5rem;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      font-weight: 500;
+      outline: none;
+  }
+
+  .todo-input::placeholder {
+      color: var(--text-secondary);
+  }
+
+  .add-button {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border: none;
+      border-radius: calc(var(--border-radius) - 0.25rem);
+      color: white;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  }
+
+  .add-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+  }
+
+  .add-button:active {
+      transform: translateY(0);
+  }
+
+  /* Todo Section  */
+  /*-----------------------------------
+  🌟 Base Styles
+  -----------------------------------*/
+  .container-box {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .todo-section {
+    flex: 1;
+    min-width: 250px;
+    min-height: 250px;
+    border-radius: 16px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease all;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.6s ease;
+  }
+
+  .todo-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  }
+
+  .todo-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /*-----------------------------------
+  🎨 Section Headings - Color Variants
+  -----------------------------------*/
+  /* text-center my-2 border shadow py-1 */
+  .todo-section-heading {
+    border: 1px solid #ccc;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     text-align: center;
-    padding: 3rem 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 2rem;
-}
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+    padding-top: 0.25rem;      /* py-1 → padding-top/bottom: 0.25rem */
+    padding-bottom: 0.25rem;
+  }
 
-.app-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: slideInDown 0.8s ease-out;
-}
+  .todo-section-heading.todo {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6); /* Indigo */
+  }
 
-.app-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    font-weight: 400;
-    animation: slideInUp 0.8s ease-out 0.2s both;
-}
+  .todo-section-heading.ongoing {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24); /* Amber */
+  }
 
-@keyframes slideInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Input Section  */
-.input-section {
-    margin-bottom: 2rem;
-}
-
-.input-container {
-    position: relative;
+  .todo-section-heading.done {
+    background: linear-gradient(90deg, #10b981, #34d399); /* Green */
     display: flex;
     align-items: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 0.5rem;
-    transition: var(--transition);
-}
+    justify-content: center;
+    gap: 0.5rem;
+  }
 
-.input-container:focus-within {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
+  /*-----------------------------------
+  💡 Section Card Shadows
+  -----------------------------------*/
+  .todo-section.starting-section {
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+  }
 
-.todo-input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 1rem 1.5rem;
-    color: var(--text-primary);
-    font-size: 1.1rem;
+  .todo-section.pending-section {
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+  }
+
+  .todo-section.completed-section {
+    box-shadow: 0 4px 25px rgba(16, 185, 129, 0.3);
+  }
+
+  /*-----------------------------------
+  ✅ Task Items
+  -----------------------------------*/
+  .todo-section li {
+    background: #f8fafc;
+    border-left: 6px solid red;
+    border-left: 6px solid #6366f1;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
     font-weight: 500;
-    outline: none;
-}
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeInTask 0.5s ease;
+  }
 
-.todo-input::placeholder {
-    color: var(--text-secondary);
-}
+  .todo-section li:active {
+    cursor: grabbing;
+  }
 
-.add-button {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    border: none;
-    border-radius: calc(var(--border-radius) - 0.25rem);
-    color: white;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
+  .todo-section li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .pending-section li {
+    border-left-color: #f59e0b;
+  }
+
+  .completed-section li {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.add-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-}
-
-.add-button:active {
-    transform: translateY(0);
-}
-
-/* Todo Section  */
-/*-----------------------------------
- 🌟 Base Styles
------------------------------------*/
-.container-box {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  margin-bottom: 10px;
-}
-
-.todo-section {
-  flex: 1;
-  min-width: 250px;
-  min-height: 250px;
-  border-radius: 16px;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  transition: 0.3s ease all;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: slideUp 0.6s ease;
-}
-
-.todo-section:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-}
-
-.todo-section ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-/*-----------------------------------
- 🎨 Section Headings - Color Variants
------------------------------------*/
-.todo-section-heading {
-  color: white;
-  font-weight: bold;
-  font-size: 1.3rem;
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.5);
-}
-
-.todo-section-heading.todo {
-  background: linear-gradient(90deg, #6366f1, #8b5cf6); /* Indigo */
-}
-
-.todo-section-heading.ongoing {
-  background: linear-gradient(90deg, #f59e0b, #fbbf24); /* Amber */
-}
-
-.todo-section-heading.done {
-  background: linear-gradient(90deg, #10b981, #34d399); /* Green */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-/*-----------------------------------
- 💡 Section Card Shadows
------------------------------------*/
-.todo-section.starting-section {
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-}
-
-.todo-section.pending-section {
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
-}
-
-.todo-section.completed-section {
-  box-shadow: 0 4px 25px rgba(16, 185, 129, 0.3);
-}
-
-/*-----------------------------------
- ✅ Task Items
------------------------------------*/
-.todo-section li {
-  background: #f8fafc;
-   border-left: 6px solid red;
-  border-left: 6px solid #6366f1;
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-  cursor: grab;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: fadeInTask 0.5s ease;
-}
-
-.todo-section li:active {
-  cursor: grabbing;
-}
-
-.todo-section li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.pending-section li {
-  border-left-color: #f59e0b;
-}
-
-.completed-section li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #f8fafc;
-  border-left: 6px solid #10b981;
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  font-weight: 500;
-  color: #10b981;
-  animation: fadeInTask 0.5s ease-in;
-}
-
-.completed-section li::before {
-  display: none; 
-}
-
-.done-text {
-  text-decoration: line-through;
-  color: #4ade80;
-}
-
-/*-----------------------------------
- ✨ Drag and Input Animations
------------------------------------*/
-.input-container:focus-within {
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
-  transform: scale(1.02);
-  transition: 0.2s ease-in-out;
-}
-
-.todo-section.drag-over {
-  border: 2px #8b5cf6;
-  background: rgba(139, 92, 246, 0.05);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
-}
-
-/*-----------------------------------
-  Keyframe Animations
------------------------------------*/
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+    background: #f8fafc;
+    border-left: 6px solid #10b981;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    color: #10b981;
+    animation: fadeInTask 0.5s ease-in;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeInTask {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  .completed-section li::before {
+    display: none; 
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .done-text {
+    text-decoration: line-through;
+    color: #4ade80;
   }
-}
+
+  /*-----------------------------------
+  ✨ Drag and Input Animations
+  -----------------------------------*/
+  .input-container:focus-within {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+    transform: scale(1.02);
+    transition: 0.2s ease-in-out;
+  }
+
+  .todo-section.drag-over {
+    border: 2px #8b5cf6;
+    background: rgba(139, 92, 246, 0.05);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+  }
+
+  /*-----------------------------------
+    Keyframe Animations
+  -----------------------------------*/
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInTask {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .todo-section ul {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+
+  /* Responsive Design  */
+
+  @media (max-width: 768px) {
+    .container-box {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .todo-section {
+      width: 90%;
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    .input-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .add-button {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .todo-input {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .todo-section li {
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+    }
+  }

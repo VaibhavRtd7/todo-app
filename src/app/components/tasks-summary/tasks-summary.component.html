@@ -1,11 +1,17 @@
- <div class="tasks-summary">
-         <div class="task todoTasks"> 
-           <p> Todo Tasks : {{todoTasks.length || 0}} </p>
-         </div>
-         <div class="task inProgressTasks">  
-           <p> Ongoing Tasks : {{inProgressTasks.length  || 0}} </p>
-         </div>
-         <div class="task doneTasks"> 
-           <p> Completed Tasks : {{doneTasks.length  || 0}} </p>
-         </div>
-    </div> 
+<div class="tasks-summary">
+    <div class="task-card todo">
+        <h3>📝</h3>
+        <p> Todo Tasks </p>
+        <span>{{todoTasks.length || 0}}</span>
+    </div>
+    <div class="task-card ongoing">
+        <h3>⏳</h3>
+        <p>Ongoing Tasks</p>
+        <span>{{ inProgressTasks.length || 0 }}</span>
+    </div>
+    <div class="task-card done">
+        <h3>✅</h3>
+        <p>Completed Tasks</p>
+        <span>{{ doneTasks.length || 0 }}</span>
+    </div>
+</div>

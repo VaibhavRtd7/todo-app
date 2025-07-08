@@ -24,7 +24,7 @@
 
   <div class="container-box">
     <div class="todo-section starting-section border" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'todo')">
-      <h4 class="todo-section-heading todo text-center my-2 border shadow py-1">Todo Task</h4>
+      <h4 class="todo-section-heading todo">Todo Task</h4>
       <ul>
         <li *ngFor="let task of todoTasks" draggable="true" (dragstart)="onDragStart($event, task, 'todo')"
           class="border p-1 m-1 bg-light bg-gradient">
@@ -35,7 +35,7 @@
 
     <div class="todo-section pending-section border" (dragover)="onDragOver($event)"
       (drop)="onDrop($event, 'inProgress')">
-      <h4 class="todo-section-heading ongoing text-center my-2 border shadow py-1">Ongoing Task</h4>
+      <h4 class="todo-section-heading ongoing">Ongoing Task</h4>
       <ul>
         <li *ngFor="let task of inProgressTasks" draggable="true" (dragstart)="onDragStart($event, task, 'inProgress')"
           class="border p-1 m-1 bg-light bg-gradient">
@@ -45,7 +45,7 @@
     </div>
 
     <div class="todo-section completed-section border" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'done')">
-      <h4 class="todo-section-heading done text-center my-2 border shadow py-1">Done Task</h4>
+      <h4 class="todo-section-heading done">Done Task</h4>
       <ul>
         <li *ngFor="let task of doneTasks" draggable="true" (dragstart)="onDragStart($event, task, 'done')">
           ✅ <span class="done-text">{{ task }}</span>

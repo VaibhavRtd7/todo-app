@@ -1,0 +1,25 @@
+.footer {
+  background-color: #1f2937; /* Dark background (Tailwind-like) */
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-text {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-subtext {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #d1d5db; /* Light gray */
+}

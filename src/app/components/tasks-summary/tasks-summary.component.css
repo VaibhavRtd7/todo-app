@@ -1,0 +1,93 @@
+.tasks-summary {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  animation: fadeInSummary 0.8s ease-in-out;
+}
+
+.task-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  flex: 1;
+  min-width: 140px;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .tasks-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task-card {
+    width: 90%;
+  }
+}
+
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.25);
+}
+
+.task-card h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.task-card p {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.task-card span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Unique Backgrounds */
+.task-card.todo {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.task-card.ongoing {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.task-card.done {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+/* Animations */
+@keyframes fadeInSummary {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
