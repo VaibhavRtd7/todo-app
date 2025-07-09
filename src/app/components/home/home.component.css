@@ -194,7 +194,7 @@
   -----------------------------------*/
   .todo-section.starting-section {
     margin-left: 2px;
-    min-height: 100px;
+    min-height: 200px;
     height: 100%;
     box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
   }
