@@ -6,7 +6,7 @@ import { TasksSummaryComponent } from './components/tasks-summary/tasks-summary.
 
 @Component({
   selector: 'app-root',
-  imports: [HomeComponent, FooterComponent, TasksSummaryComponent],
+  imports: [HomeComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

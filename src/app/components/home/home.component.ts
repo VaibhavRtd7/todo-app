@@ -28,26 +28,27 @@ export class HomeComponent {
   }
 
   moveTask(task: string, from: 'todo' | 'inProgress' | 'done', to: 'todo' | 'inProgress' | 'done') {
-  if (from === to) return;
+    if (from === to) return;
 
-  // Remove from source
-  if (from === 'todo') {
-    this.todoTasks = this.todoTasks.filter(t => t !== task);
-  } else if (from === 'inProgress') {
-    this.inProgressTasks = this.inProgressTasks.filter(t => t !== task);
-  } else if (from === 'done') {
-    this.doneTasks = this.doneTasks.filter(t => t !== task);
-  }
+    // Remove from source
+    if (from === 'todo') {
+      this.todoTasks = this.todoTasks.filter(t => t !== task);
+    } else if (from === 'inProgress') {
+      this.inProgressTasks = this.inProgressTasks.filter(t => t !== task);
+    } else if (from === 'done') {
+      this.doneTasks = this.doneTasks.filter(t => t !== task);
+    }
 
-  // Add to target
-  if (to === 'todo') {
-    this.todoTasks.push(task);
-  } else if (to === 'inProgress') {
-    this.inProgressTasks.push(task);
-  } else if (to === 'done') {
-    this.doneTasks.push(task);
+    // Add to target
+    if (to === 'todo') {
+      this.todoTasks.push(task);
+    } else if (to === 'inProgress') {
+      this.inProgressTasks.push(task);
+    } else if (to === 'done') {
+      this.doneTasks.push(task);
+      this.playCompletedSound();
+    }
   }
-}
 
 
   onDragStart(event: DragEvent, task: string, listType: string) {
@@ -77,6 +78,7 @@ export class HomeComponent {
       this.inProgressTasks.push(this.draggedTask);
     } else if (targetList === 'done') {
       this.doneTasks.push(this.draggedTask);
+      this.playCompletedSound();
     }
 
     this.draggedTask = '';
@@ -91,5 +93,11 @@ export class HomeComponent {
     } else if (list === 'done') {
       this.doneTasks = this.doneTasks.filter(t => t !== task);
     }
+  }
+
+  playCompletedSound() {
+    console.log("play sound");
+    const audio = new Audio('/assets/completed1.mp3');
+    audio.play().catch(error => console.error('Playback failed:', error));
   }
 }
