@@ -19,9 +19,6 @@ A simple and elegant task management app built with **Angular** and **CDK Drag a
 - HTML, CSS
 - Font Awesome
 
-## 📸 Preview
-
-![Todo Master Pro Screenshot](# 🧠 Todo Master Pro
 
 A simple and elegant task management app built with **Angular** and **CDK Drag and Drop**.
 
