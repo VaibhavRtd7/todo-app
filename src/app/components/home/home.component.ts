@@ -27,6 +27,29 @@ export class HomeComponent {
     }
   }
 
+  moveTask(task: string, from: 'todo' | 'inProgress' | 'done', to: 'todo' | 'inProgress' | 'done') {
+  if (from === to) return;
+
+  // Remove from source
+  if (from === 'todo') {
+    this.todoTasks = this.todoTasks.filter(t => t !== task);
+  } else if (from === 'inProgress') {
+    this.inProgressTasks = this.inProgressTasks.filter(t => t !== task);
+  } else if (from === 'done') {
+    this.doneTasks = this.doneTasks.filter(t => t !== task);
+  }
+
+  // Add to target
+  if (to === 'todo') {
+    this.todoTasks.push(task);
+  } else if (to === 'inProgress') {
+    this.inProgressTasks.push(task);
+  } else if (to === 'done') {
+    this.doneTasks.push(task);
+  }
+}
+
+
   onDragStart(event: DragEvent, task: string, listType: string) {
     this.draggedTask = task;
     this.sourceList = listType;

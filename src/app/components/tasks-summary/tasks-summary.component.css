@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
   flex-wrap: wrap;
   animation: fadeInSummary 0.8s ease-in-out;
 }
@@ -11,7 +11,7 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 0.5rem;
   flex: 1;
   min-width: 140px;
   width: 100%;
